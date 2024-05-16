@@ -86,7 +86,7 @@ class EnterCodeView extends StatelessWidget {
                   AppStrings.sendCode,
                   style: AppTextStyle.bodyM.copyWith(
                     fontSize: 15.sp,
-                    color: AppColors.whiteColor,
+                    color: AppColors.white,
                   ),
                 ),
               ),

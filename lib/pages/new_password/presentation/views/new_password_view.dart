@@ -83,7 +83,7 @@ class NewPasswordView extends StatelessWidget {
                 AppStrings.confirm,
                 style: AppTextStyle.bodyM.copyWith(
                   fontSize: 15.sp,
-                  color: AppColors.whiteColor,
+                  color: AppColors.white,
                 ),
               ),
             ),

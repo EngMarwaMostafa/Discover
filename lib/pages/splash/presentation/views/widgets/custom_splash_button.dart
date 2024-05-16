@@ -32,7 +32,7 @@ class _CustomSplashButtonState extends State<CustomSplashButton> {
         width: 91.w,
         height: 6.h,
         decoration: BoxDecoration(
-         color:AppColors.blue,
+         color:AppColors.primaryColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Align(

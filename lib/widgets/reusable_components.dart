@@ -12,22 +12,75 @@ Widget unDefinedRoute() {
 
 Widget customTextFormField(
     {String? hintText,
-      TextStyle? hintStyle,
-      required Color borderColor,
-      Widget? prefixIcon,
-      Widget? suffixIcon,
-      TextEditingController? controller,
-      required double height,
-      double radius = 0,
-      bool isPassword = false,
-      TextStyle? textStyle,
-      EdgeInsetsGeometry? contentPadding,
-      String? Function(String?)? onValidate}) {
+    TextStyle? hintStyle,
+    required Color borderColor,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+    TextEditingController? controller,
+    required double height,
+    double radius = 0,
+    bool isPassword = false,
+    TextStyle? textStyle,
+    EdgeInsetsGeometry? contentPadding,
+    Function(String value)? validate}) {
   return SizedBox(
     height: height,
     child: TextFormField(
       textDirection: TextDirection.rtl,
       textAlign: TextAlign.right,
+      validator: (value) => validate!(value!),
+      style: textStyle,
+      obscureText: isPassword,
+      obscuringCharacter: '*',
+      cursorColor: AppColors.primaryColor,
+      controller: controller,
+      decoration: InputDecoration(
+        contentPadding: contentPadding,
+        hintText: hintText,
+        hintStyle: hintStyle,
+        filled: true,
+        fillColor: AppColors.white,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: BorderSide(color: borderColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: BorderSide(color: borderColor),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: BorderSide(color: borderColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget customTextFormField1(
+    {String? hintText,
+    TextStyle? hintStyle,
+    required Color borderColor,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+    TextEditingController? controller,
+    required double height,
+    double radius = 0,
+    bool isPassword = false,
+    TextStyle? textStyle,
+    EdgeInsetsGeometry? contentPadding,
+    String? Function(String?)? onValidate}) {
+  return SizedBox(
+    height: height,
+    child: TextFormField(
+      textDirection: TextDirection.rtl,
+      textAlign: TextAlign.left,
       validator: onValidate,
       style: textStyle,
       obscureText: isPassword,
@@ -39,7 +92,7 @@ Widget customTextFormField(
         hintText: hintText,
         hintStyle: hintStyle,
         filled: true,
-        fillColor: AppColors.whiteColor,
+        fillColor: AppColors.white,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(
@@ -65,11 +118,11 @@ Widget customTextFormField(
 
 Container customButton(
     {Widget? child,
-      double? width,
-      double? height,
-      Color? color,
-      BorderRadiusGeometry? borderRadius,
-      EdgeInsetsGeometry? padding}) {
+    double? width,
+    double? height,
+    Color? color,
+    BorderRadiusGeometry? borderRadius,
+    EdgeInsetsGeometry? padding}) {
   return Container(
     padding: padding,
     width: width,

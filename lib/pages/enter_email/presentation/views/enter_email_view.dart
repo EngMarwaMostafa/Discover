@@ -47,7 +47,7 @@ class EnterEmailView extends StatelessWidget {
             customTextFormField(
               borderColor: AppColors.greyColor,
               height: 6.7.h,
-              hintText: AppStrings.emailOrPhone,
+              hintText: AppStrings.email,
               hintStyle: AppTextStyle.bodyM
                   .copyWith(fontSize: 14.sp, color: AppColors.greyColor),
               radius: 10,
@@ -67,7 +67,7 @@ class EnterEmailView extends StatelessWidget {
                   AppStrings.sendCode,
                   style: AppTextStyle.bodyM.copyWith(
                     fontSize: 15.sp,
-                    color: AppColors.whiteColor,
+                    color: AppColors.white,
                   ),
                 ),
               ),

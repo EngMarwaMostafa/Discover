@@ -39,7 +39,8 @@ class _CustomSplashButtonState extends State<CustomSkipButton> {
             Text(
               widget.text,
               textAlign: TextAlign.center,
-              style:GoogleFonts.cairo(textStyle:AppTextStyle.text18(context).copyWith(fontWeight:FontWeight.w500,color: AppColors.blue),)
+              style:GoogleFonts.cairo(textStyle:AppTextStyle.text18(context).copyWith(fontWeight:FontWeight.w500,
+                  color: AppColors.primaryColor),)
             )
         ),
       ),

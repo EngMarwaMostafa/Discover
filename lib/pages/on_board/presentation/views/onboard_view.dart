@@ -84,8 +84,8 @@ class _OnBoardViewState extends State<OnBoardView> {
               controller: _pageController,
               count: 3,
               effect: ExpandingDotsEffect(
-                dotColor: AppColors.blue,
-                activeDotColor: AppColors.blue,
+                dotColor: AppColors.primaryColor,
+                activeDotColor: AppColors.primaryColor,
                 paintStyle: PaintingStyle.fill,
                 strokeWidth: 7.w,
                 dotWidth: 7.3,
