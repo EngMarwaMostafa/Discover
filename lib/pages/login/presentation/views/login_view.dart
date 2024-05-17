@@ -1,4 +1,3 @@
-
 import 'package:discover/core/image_assets_consts.dart';
 import 'package:discover/pages/login/presentation/controller/login_controller.dart';
 import 'package:discover/pages/splash/presentation/views/widgets/custom_splash_button.dart';
@@ -33,7 +32,7 @@ class LoginView extends GetView<LoginController> {
                 Align(
                   alignment: Alignment.center,
                   child: Image.asset(
-                   ImageAssetsConstants.logo,
+                    ImageAssetsConstants.logo,
                     width: 27.w,
                     height: 9.h,
                   ),
@@ -65,46 +64,46 @@ class LoginView extends GetView<LoginController> {
                 CustomTextFormField(
                   textEditingController: controller.phoneLoginController,
                   hintText: AppStrings.phone,
-                    validate: (value) {
-                      if (value.length < 11) {
-                        return 'من فضلك أدخل رقم تلفون مناسب';
-                      }
-                      return null; // Return null for no validation errors
-                    },
+                  validate: (value) {
+                    if (value.length < 10) {
+                      return 'من فضلك أدخل رقم تلفون مناسب';
+                    }
+                    return null; // Return null for no validation errors
+                  },
                 ),
                 SizedBox(height: 4.h),
                 CustomPasswordTextFormField(
                   textEditingController: controller.passwordLoginController,
                   hintText: AppStrings.password,
-                    validate: (value) {
-                      if (value.length < 6) {
-                        return 'لابد أن تكون كلمة المرور على الأقل 6 أرقام';
-                      }
-                      return null;
-                    },
+                  validate: (value) {
+                    if (value.length < 6) {
+                      return 'لابد أن تكون كلمة المرور على الأقل 6 أرقام';
+                    }
+                    return null;
+                  },
                 ),
-               SizedBox(height: 4.h),
+                SizedBox(height: 4.h),
                 Align(
                   alignment: Alignment.center,
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       Get.toNamed(AppRoutes.enterEmail);
                     },
                     child: Text(
                       AppStrings.forgetPassword,
-                      style: AppTextStyle.bodyM
-                          .copyWith(fontSize: 14.sp, fontWeight: FontWeight.w400),
+                      style: AppTextStyle.bodyM.copyWith(
+                          fontSize: 14.sp, fontWeight: FontWeight.w400),
                     ),
                   ),
                 ),
                 SizedBox(height: 8.h),
-               CustomSplashButton(
-                   text: AppStrings.enterText,
-                   onTap: (){
-                    if(formKey.currentState!.validate()){
-                      controller.login();
-                    }
-                   }),
+                CustomSplashButton(
+                    text: AppStrings.enterText,
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        controller.login();
+                      }
+                    }),
                 SizedBox(height: 9.h),
                 Align(
                   alignment: Alignment.center,
@@ -132,7 +131,6 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 SizedBox(height: 4.h),
-            
               ],
             ),
           ),

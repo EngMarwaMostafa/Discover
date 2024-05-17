@@ -10,7 +10,7 @@ class LoginModel {
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];
-    admin = json['admin'] != null ? Admin.fromJson(json['admin']) : null;
+    admin = json['user'] != null ? Admin.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {

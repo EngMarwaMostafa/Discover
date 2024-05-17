@@ -35,6 +35,7 @@ class ApiService extends GetxService {
 
   static Future<Response> postData(
       {required String url, Map<String, dynamic>? query, dynamic body}) async {
+    print(url);
     dio.options.headers = {
       'Accept': 'application/json',
       'Content-Type': "application/json",

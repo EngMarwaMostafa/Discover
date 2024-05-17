@@ -3,29 +3,32 @@ import 'package:discover/models/get_countries_model.dart';
 import 'package:discover/services/api_service.dart';
 import 'package:get/get.dart';
 
-
 class SelectCityController extends SuperController<dynamic> {
-
-  RxList<GetCountriesModel> citiesList=<GetCountriesModel>[].obs;
-
- Future<void> getCity() async {
+  GetCountriesModel cities = GetCountriesModel();
+  Future<void> getCity() async {
     try {
-      final response = await ApiService.getData(
-          url: 'api/countries');
-      if(response.statusCode==200){
+      change(true, status: RxStatus.loading());
+      final response = await ApiService.getData(url: 'api/countries');
+      if (response.statusCode == 200) {
         print(response.data);
-
-        // for(var item in response.data){
-        //   citiesList.add(GetCountriesModel.fromJson(item));
-        // }
+        cities = GetCountriesModel.fromJson(response.data);
         print(response.statusCode);
+        change(true, status: RxStatus.success());
       }
-    }catch(e) {
+    } catch (e) {
       if (e is DioException) {
-     print(e.response?.data);
+        print(e.response?.data);
       }
+      change(true, status: RxStatus.error());
       rethrow;
-    }}
+    }
+  }
+
+  @override
+  void onInit() {
+    getCity();
+    super.onInit();
+  }
 
   @override
   void onDetached() {

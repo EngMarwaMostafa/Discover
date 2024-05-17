@@ -51,7 +51,6 @@ class _MainScreenViewState extends State<MainScreenView> {
               ),
               label: 'الحجوزات',
             ),
-
             CurvedNavigationBarItem(
               child: ImageIcon(
                 AssetImage(ImageAssetsConstants.userBottom),

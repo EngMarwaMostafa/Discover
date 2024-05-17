@@ -47,6 +47,7 @@ dependencies:
   smooth_page_indicator:
   flutter_date_pickers: ^0.4.2
   table_calendar: ^3.0.9
+  carousel_slider: ^4.2.1
   flutter_svg:
   intl:
   calendar_date_picker2:

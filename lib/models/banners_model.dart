@@ -1,9 +1,9 @@
-class GetCountriesModel {
+class BannersModel {
   List<Data>? data;
 
-  GetCountriesModel({this.data});
+  BannersModel({this.data});
 
-  GetCountriesModel.fromJson(Map<String, dynamic> json) {
+  BannersModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
@@ -23,28 +23,25 @@ class GetCountriesModel {
 
 class Data {
   int? id;
-  String? title;
   String? image;
-  List<int>? categoryId;
-  List<String>? categories;
+  String? createdAt;
+  String? updatedAt;
 
-  Data({this.id, this.title, this.image, this.categoryId, this.categories});
+  Data({this.id, this.image, this.createdAt, this.updatedAt});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    title = json['title'];
     image = json['image'];
-    // categoryId = json['category_id'].cast<int>();
-    // categories = json['categories'].cast<String>();
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['title'] = title;
     data['image'] = image;
-    data['category_id'] = categoryId;
-    data['categories'] = categories;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }
