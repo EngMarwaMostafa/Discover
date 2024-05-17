@@ -97,13 +97,15 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 SizedBox(height: 8.h),
-                CustomSplashButton(
-                    text: AppStrings.enterText,
-                    onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        controller.login();
-                      }
-                    }),
+                controller.obx(
+                      (state) => CustomSplashButton(
+                      text: AppStrings.enterText,
+                      onTap: () {
+                        if (formKey.currentState!.validate()) {
+                          controller.login();
+                        }
+                      }),
+                ),
                 SizedBox(height: 9.h),
                 Align(
                   alignment: Alignment.center,

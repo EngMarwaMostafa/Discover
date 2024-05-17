@@ -15,7 +15,17 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+  HomeView({super.key});
+  String dropdownvalue = 'Item 1';
+
+  // List of items in our dropdown menu
+  var items = [
+    'مطاعم',
+    'فنادق',
+    'قهاوي',
+    'محلات',
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +65,6 @@ class HomeView extends GetView<HomeController> {
                     SizedBox(
                       width: 42.w,
                     ),
-                    // SizedBox(
-                    //     height: 3.h,
-                    //     width: 5.w,
-                    //     child: InkWell(
-                    //         onTap: (){
-                    //           Get.toNamed(AppRoutes.city);
-                    //         },
-                    //         child: Image.asset(ImageAssetsConstants.location))),
-
                     SizedBox(
                         width: 7.w,
                         height: 3.h,
@@ -102,20 +103,52 @@ class HomeView extends GetView<HomeController> {
                     controller.banners.data?.length ?? 0,
                     (index) => Image(
                         image: NetworkImage(
-                            controller.banners.data?[index].image ?? ''))),
-              ),
+                            controller.banners.data?[index].image ?? ''),
+                    errorBuilder: (ctx, object, trace) => const Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                    ),
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                ),
+              ),),
               Padding(
                 padding: EdgeInsets.only(left: 4.w, top: 3.h, bottom: 3.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    OscillateText(
+                Text(
                       AppStrings.offers,
                       style: AppTextStyle.text16W600Black(context),
-                      textDirection: TextDirection.rtl,
                     ),
+                    // DropdownButton(
+                    //
+                    //   // Initial Value
+                    //   value: dropdownvalue,
+                    //
+                    //   // Down Arrow Icon
+                    //   icon: const Icon(Icons.keyboard_arrow_down),
+                    //
+                    //   // Array list of items
+                    //   items: items.map((String items) {
+                    //     return DropdownMenuItem(
+                    //       value: items,
+                    //       child: Text(items),
+                    //     );
+                    //   }).toList(),
+                    //   onChanged: (String? newValue) {
+                    //     setState(() {
+                    //       dropdownvalue = newValue!;
+                    //     });
+                    //   },
+                    // ),
                     SizedBox(
-                      width: 24.w,
+                      width:10.w,
                     ),
                     InkWell(
                       onTap: () {
@@ -212,9 +245,25 @@ class HomeView extends GetView<HomeController> {
                       AppStrings.enjoy,
                       style: AppTextStyle.text15W500(context),
                     ),
-                    SizedBox(
-                        width: 35.w,
-                        child: Image.asset(ImageAssetsConstants.woman1)),
+                    // SizedBox(
+                    //     width: 35.w,
+                    //     child: Image(
+                    //         image: NetworkImage(
+                    //             controller.banners.data?[index].image ?? ''
+                    //         ),
+                    //         errorBuilder: (ctx, object, trace) => const Icon(
+                    //           Icons.error_outline,
+                    //           color: Colors.red,
+                    //         ),
+                    //         loadingBuilder: (BuildContext context, Widget child,
+                    //             ImageChunkEvent? loadingProgress) {
+                    //           if (loadingProgress == null) return child;
+                    //           return const Center(
+                    //             child: CircularProgressIndicator(),
+                    //           );
+                    //         }
+                    //     ),
+                    // ),
                   ],
                 ),
               ),
@@ -261,7 +310,7 @@ class HomeView extends GetView<HomeController> {
                   shrinkWrap: true,
                   itemCount: 7,
                   itemBuilder: (context, i) {
-                    return const FamousCard();
+                    return const FamousCard(hotel: '', city: '', desc: '', price: '',);
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(

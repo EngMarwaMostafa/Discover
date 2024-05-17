@@ -44,7 +44,6 @@ class MyCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 1.w, right: 1.w, bottom: 1.h),
             child: const HomeRow(),
           ),
-          const PlaceRow(),
           SizedBox(
             height: 1.h,
           ),

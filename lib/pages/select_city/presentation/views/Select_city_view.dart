@@ -1,6 +1,7 @@
 import 'package:discover/core/app_colors.dart';
 import 'package:discover/pages/select_city/presentation/controller/select_city_controller.dart';
 import 'package:discover/routes/app_routes.dart';
+import 'package:discover/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -59,15 +60,21 @@ class SelectCityView extends GetView<SelectCityController> {
                       width: 41.w,
                       height: 17.h,
                       child: Image(
-                        image: NetworkImage(
-                            controller.cities.data?[index].image ?? ''),
-                        errorBuilder: (ctx, object, trace) => Icon(
-                          Icons.error_outline,
-                          color: Colors.red,
-                        ),
-                      ),
+                          image: NetworkImage(
+                              controller.cities.data?[index].image ?? ''),
+                          errorBuilder: (ctx, object, trace) => const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                          ),
+                          loadingBuilder: (BuildContext context, Widget child,
+                              ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       controller.cities.data?[index].title ?? '',
                       style: AppTextStyle.text16W600Black(context),

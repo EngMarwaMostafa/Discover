@@ -7,8 +7,12 @@ import '../../../../core/app_text_style.dart';
 import '../../../../core/image_assets_consts.dart';
 
 class FavoriteView extends StatelessWidget {
-  const FavoriteView({super.key});
-
+  const FavoriteView({super.key, this.hotel, this.cost, this.date, this.period, this.city});
+  final String? hotel;
+  final String? cost;
+  final String? date;
+  final String? period;
+  final String? city;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,13 +60,13 @@ class FavoriteView extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                AppStrings.marshal,
+                               hotel!,
                                 style: AppTextStyle.text12W600Black(context),
                               ),
                               SizedBox(
                                 width: 6.w,
                               ),
-                              Text(AppStrings.thousand,
+                              Text(cost!,
                                   style: AppTextStyle.text10W400Blue(context)),
                               SizedBox(
                                 width: 1.w,
@@ -101,11 +105,11 @@ class FavoriteView extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(AppStrings.date,
+                                  Text(date!,
                                       style:
                                           AppTextStyle.text10W500Black(context)),
                                   Text(
-                                    AppStrings.period,
+                                   period!,
                                     style: AppTextStyle.text8W400Black(context),
                                   ),
                                 ],
@@ -121,7 +125,7 @@ class FavoriteView extends StatelessWidget {
                               scale: 2.5,
                             ),
                             Text(
-                              AppStrings.address,
+                             city!,
                               style: AppTextStyle.text12W500BlackCo(context),
                             ),
                           ]),
