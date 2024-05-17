@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../../../../core/app_colors.dart';
 import '../../../../../core/app_strings.dart';
@@ -10,12 +9,18 @@ class HomeRow extends StatelessWidget {
   final String? title;
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title!,style: AppTextStyle.text14W500Black(context),),
-        Icon(Icons.favorite,color: AppColors.redColor,),
-        Image.asset(ImageAssetsConstants.share,scale: 2,)
+        Text(
+          title ?? '',
+          style: AppTextStyle.text14W500Black(context),
+        ),
+        Icon(
+          Icons.favorite,
+          color: AppColors.redColor,
+        ),
+        Icon(Icons.share)
       ],
     );
   }

@@ -16,25 +16,28 @@ class LoginController extends SuperController<dynamic> {
   bool get isLoading => _isLoading;
 
   login() async {
+    change(false, status: RxStatus.loading());
     final prefs = await SharedPreferences.getInstance();
     print({
       "phone": phoneLoginController.text,
       'password': passwordLoginController.text,
     });
     try {
-      final response = await ApiService.postData(url: 'api/authUser/login', body: {
+      final response =
+          await ApiService.postData(url: 'api/authUser/login', body: {
+        "type": "2",
         "phone": phoneLoginController.text,
         'password': passwordLoginController.text,
       });
       print(response.statusCode);
       if (response.statusCode == 200) {
-
         print(response.data);
         LoginModel loginModel = LoginModel.fromJson(response.data);
         prefs.setString('token', loginModel.accessToken.toString());
         prefs.setString('name', loginModel.admin!.name!);
         prefs.setString('email', loginModel.admin!.email!);
         prefs.setString('phone', loginModel.admin!.phone!);
+        change(false, status: RxStatus.success());
         Get.offAllNamed(AppRoutes.city);
       } else {}
     } catch (e) {
@@ -43,8 +46,15 @@ class LoginController extends SuperController<dynamic> {
         showToastMessage(e.response.toString(), Colors.transparent);
         print(e.response?.data);
       }
+      change(false, status: RxStatus.success());
       rethrow;
     }
+  }
+
+  @override
+  void onInit() {
+    change(false, status: RxStatus.success());
+    super.onInit();
   }
 
   @override

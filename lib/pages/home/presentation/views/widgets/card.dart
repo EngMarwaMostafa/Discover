@@ -38,11 +38,19 @@ class MyCard extends StatelessWidget {
           SizedBox(
             //  width:40.w,
             height: 17.h,
-            child: Image.asset(image!),
+            child: Image(
+              image: NetworkImage(image ?? ''),
+              errorBuilder: (ctx, object, trace) => Icon(
+                Icons.error_outline,
+                color: Colors.red,
+              ),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(left: 1.w, right: 1.w, bottom: 1.h),
-            child: const HomeRow(),
+            child: HomeRow(
+              title: title,
+            ),
           ),
           const PlaceRow(),
           SizedBox(
@@ -52,14 +60,15 @@ class MyCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                price!,
+                price ?? '',
                 style: AppTextStyle.text10W500Blue(context),
               ),
               Text(
                 AppStrings.night,
                 style: AppTextStyle.text10W500Black(context),
               ),
-              Text(unPrice!, style: AppTextStyle.text10W500GrayLine(context))
+              Text(unPrice ?? '',
+                  style: AppTextStyle.text10W500GrayLine(context))
             ],
           )
         ],

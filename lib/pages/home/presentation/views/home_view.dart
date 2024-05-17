@@ -23,6 +23,7 @@ class HomeView extends GetView<HomeController> {
       body: SingleChildScrollView(
         child: controller.obx(
           (state) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 3.h,
@@ -105,17 +106,15 @@ class HomeView extends GetView<HomeController> {
                             controller.banners.data?[index].image ?? ''))),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 4.w, top: 3.h, bottom: 3.h),
+                padding: EdgeInsets.only(
+                    left: 4.w, top: 3.h, bottom: 3.h, right: 3.w),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     OscillateText(
                       AppStrings.offers,
                       style: AppTextStyle.text16W600Black(context),
                       textDirection: TextDirection.rtl,
-                    ),
-                    SizedBox(
-                      width: 24.w,
                     ),
                     InkWell(
                       onTap: () {
@@ -134,13 +133,14 @@ class HomeView extends GetView<HomeController> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    itemCount: 6,
+                    itemCount: controller.offers.data?.length ?? 0,
                     itemBuilder: (context, i) {
-                      return const MyCard(
-                        title: '',
-                        image: '',
-                        price: '',
-                        unPrice: '',
+                      return MyCard(
+                        title: controller.offers.data?[i].service?.title ?? '',
+                        image: controller.offers.data?[i].service?.image ?? '',
+                        price: controller.offers.data?[i].service?.price ?? '',
+                        unPrice:
+                            controller.offers.data?[i].service?.unPrice ?? '',
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
@@ -152,9 +152,10 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 4.w, top: 3.h, bottom: 3.h),
+                padding: EdgeInsets.only(
+                    left: 4.w, top: 3.h, bottom: 3.h, right: 3.h),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     OscillateText(
                       AppStrings.places,
@@ -254,21 +255,19 @@ class HomeView extends GetView<HomeController> {
               //         style: AppTextStyle.text14Decoration(context)),
               //   ],
               // ),
-              SizedBox(
-                height: 20.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemCount: 7,
-                  itemBuilder: (context, i) {
-                    return const FamousCard();
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      height: 2.h,
-                    );
-                  },
-                ),
+              ListView.separated(
+                scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 7,
+                itemBuilder: (context, i) {
+                  return const FamousCard();
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: 2.h,
+                  );
+                },
               )
             ],
           ),
