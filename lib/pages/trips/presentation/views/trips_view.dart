@@ -1,16 +1,11 @@
-import 'package:discover/core/image_assets_consts.dart';
-import 'package:discover/pages/bookings2/presentation/views/widgets/bookings2_card.dart';
-import 'package:discover/pages/bookings2/presentation/views/widgets/custom_book_button.dart';
-import 'package:discover/pages/completed_bokkings/presentation/views/widgets/completed_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../core/app_colors.dart';
+
 import '../../../../core/app_strings.dart';
 import '../../../../core/app_text_style.dart';
-import '../../../../routes/app_routes.dart';
+
 import '../../../../widgets/details_container.dart';
-import '../../../bookings1/presentation/views/widgets/custom_booking1_button.dart';
 
 class TripsView extends StatelessWidget {
   const TripsView({super.key});
@@ -23,7 +18,8 @@ class TripsView extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: const Icon(Icons.arrow_back,
+          child: const Icon(
+            Icons.arrow_back,
           ),
         ),
         toolbarHeight: 12.h,
@@ -73,5 +69,3 @@ class TripsView extends StatelessWidget {
     );
   }
 }
-
-

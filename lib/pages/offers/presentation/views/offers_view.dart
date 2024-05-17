@@ -1,4 +1,3 @@
-
 import 'package:discover/core/app_strings.dart';
 import 'package:discover/core/app_text_style.dart';
 import 'package:discover/pages/home/presentation/views/widgets/card.dart';
@@ -16,6 +15,7 @@ class OffersView extends GetView<OffersController> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 12.h,
+        automaticallyImplyLeading: false,
         title: Text(
           AppStrings.offers,
           style: AppTextStyle.text18W600Black(context),
@@ -55,13 +55,18 @@ class OffersView extends GetView<OffersController> {
                   // mainAxisSpacing: 5, // spacing between rows
                   // crossAxisSpacing: 5, // spacing between columns
                 ),
-                itemCount:controller.offersList.length,
+                itemCount: controller.offersList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return MyCard(
-                    title: controller.offersList[index].data?.first.service?.title,
-                    image: controller.offersList[index].data?.first.service?.image,
-                    price: controller.offersList[index].data?.first.service?.price,
-                    unPrice:controller.offersList[index].data?.first.service?.unPrice,);
+                    title:
+                        controller.offersList[index].data?.first.service?.title,
+                    image:
+                        controller.offersList[index].data?.first.service?.image,
+                    price:
+                        controller.offersList[index].data?.first.service?.price,
+                    unPrice: controller
+                        .offersList[index].data?.first.service?.unPrice,
+                  );
                 }),
           )
         ],

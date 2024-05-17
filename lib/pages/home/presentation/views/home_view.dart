@@ -117,8 +117,13 @@ class HomeView extends GetView<HomeController> {
                     SizedBox(
                       width: 24.w,
                     ),
-                    Text(AppStrings.all,
-                        style: AppTextStyle.text14Decoration(context)),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.offers);
+                      },
+                      child: Text(AppStrings.all,
+                          style: AppTextStyle.text14Decoration(context)),
+                    ),
                   ],
                 ),
               ),
