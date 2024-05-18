@@ -1,4 +1,3 @@
-
 import 'package:discover/pages/conitnue/presentation/views/continue_view.dart';
 import 'package:discover/pages/home/presentation/views/home_view.dart';
 import 'package:discover/pages/main_screen/presentation/view/main_screen_view.dart';
@@ -34,9 +33,9 @@ class MyApp extends StatelessWidget {
           Locale('ar', ''),
         ],
         debugShowCheckedModeBanner: false,
-    home:ContinueAsView(),
-        // initialRoute: AppPages.initial,
-        // getPages: AppPages.routes,
+        // home: ContinueAsView(),
+        initialRoute: AppPages.initial,
+        getPages: AppPages.routes,
       );
     });
   }

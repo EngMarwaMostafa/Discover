@@ -15,7 +15,6 @@ class SelectCityController extends SuperController<dynamic> {
         cities = GetCountriesModel.fromJson(response.data);
         print(response.statusCode);
         change(true, status: RxStatus.success());
-        Get.toNamed(AppRoutes.main);
       }
     } catch (e) {
       if (e is DioException) {

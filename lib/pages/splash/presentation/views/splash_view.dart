@@ -2,10 +2,12 @@ import 'dart:async';
 import 'package:animate_do/animate_do.dart';
 import 'package:discover/core/app_colors.dart';
 import 'package:discover/core/image_assets_consts.dart';
+import 'package:discover/core/user_service.dart';
 import 'package:discover/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -18,11 +20,11 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   bool loading = true;
   var size, height, width;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Timer(const Duration(seconds: 5), () => Get.toNamed(AppRoutes.onBoard));
-  // }
+  @override
+  void initState() {
+    Get.put(UserService());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +38,14 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
           Padding(
             padding: EdgeInsets.only(top: height * 0.2, left: width * 0.03),
             child: Center(
-              child:FadeInDownBig(
+              child: FadeInDownBig(
                   // from: 100,
                   // duration: const Duration(seconds: 5),
                   // infinite: true,
                   child: Image.asset(ImageAssetsConstants.logoImage)),
             ),
           ),
-          SizedBox(height: 0.25 * height
-              ),
+          SizedBox(height: 0.25 * height),
           // SpinKitCircle(
           //   color: AppColors.primaryColor,
           //   size: 70.0,
