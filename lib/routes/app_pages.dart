@@ -3,6 +3,8 @@ import 'package:discover/pages/account/presentation/views/account_view.dart';
 import 'package:discover/pages/book1/binding/book1_binding.dart';
 import 'package:discover/pages/book1/presentation/views/book1_view.dart';
 import 'package:discover/pages/completed_bokkings/binding/completed_bookings_binding.dart';
+import 'package:discover/pages/conitnue/binding/continue_binding.dart';
+import 'package:discover/pages/conitnue/presentation/views/continue_view.dart';
 import 'package:discover/pages/enter_code/binding/enter_code_binding.dart';
 import 'package:discover/pages/enter_code/presentation/views/enter_code_view.dart';
 import 'package:discover/pages/enter_email/presentation/views/enter_email_view.dart';
@@ -179,6 +181,11 @@ class AppPages {
         name: AppRoutes.tripsDetails,
         page: () => const TripsDetailsView(),
         binding: TripsDetailsBinding(),
+        transition: Transition.fadeIn),
+    GetPage(
+        name: AppRoutes.continueAs,
+        page: () => const ContinueAsView(),
+        binding: ContinueBinding(),
         transition: Transition.fadeIn),
   ];
 }

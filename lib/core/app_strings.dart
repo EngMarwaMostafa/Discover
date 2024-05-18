@@ -1,7 +1,11 @@
 class AppStrings{
   static const String discoverText='اكتشف';
-  static const String titleText='سافر داخل مصر واستمتع برحلتك';
-  static const String bodyText='خطط رحلتك بكل سهولة';
+  static const String title1Text='مع فُسَح:اصنع ذكريات لاتُنسى';
+  static const String body1Text='رحلة مميزة تنتظرك..ماذا تنتظر..؟؟';
+  static const String title2Text='نقدم لك برامج سياحية شاملة';
+  static const String body2Text='كل ماتحتاجه لرحلة مثالية داخل مصر';
+  static const String title3Text='اكتشف جمال مصر';
+  static const String body3Text='رحلة تفتح لك آفاقا جديدة';
   static const String nextText='التالي';
   static const String skipText='تخطي';
   static const String changelang='تغيير اللغة';
@@ -10,10 +14,12 @@ class AppStrings{
   static const String startText='ابدأ الآن';
   static const String aboutTrip='عن الرحلة';
   static const String tripImage='صور لأماكن الرحلة';
-  static const String journeyText='اكتشف رحلتك الخاصة';
-  static const String enjoyText='واستمتع بها';
+  static const String journeyText='استمتع بإجازة حافلة بالأنشطة والمرح لكل أفراد العائلة في اكبر الفنادق ';
   static const String enterText='تسجيل الدخول';
   static const String change='تغيير';
+  static const String continueAsUser='متابعة كمستخدم';
+  static const String continueAsOwner='متابعة كمالك';
+  static const String continueAsMediator='متابعة كوسيط';
   static const String currentImg='صورة حالية';
   static const String galleryImg='من الهاتف';
   static const String currentPassword='كلمة المرور الحالية';
