@@ -34,7 +34,7 @@ class FavoriteView extends GetView<FavoriteController> {
       body: controller.obx(
         (state) => ListView.separated(
           padding: EdgeInsets.only(left: 2.w, right: 2.w),
-          itemCount: 0,
+          itemCount: controller.favModel.data?.length ?? 0,
           itemBuilder: (context, i) {
             return Container(
               width: 91.w,
@@ -47,7 +47,11 @@ class FavoriteView extends GetView<FavoriteController> {
                   SizedBox(
                       width: 31.w,
                       height: 12.h,
-                      child: Image.asset(ImageAssetsConstants.bookImg)),
+                      child: Image(
+                        image: NetworkImage(
+                            controller.favModel.data?[i].service?.imageUrl ??
+                                ''),
+                      )),
                   Padding(
                     padding: EdgeInsets.only(right: 2, left: 4.w, top: 1.h),
                     child: Column(
@@ -56,13 +60,16 @@ class FavoriteView extends GetView<FavoriteController> {
                         Row(
                           children: [
                             Text(
-                              'hotel!',
+                              controller.favModel.data?[i].service?.title ?? '',
                               style: AppTextStyle.text12W600Black(context),
                             ),
                             SizedBox(
                               width: 6.w,
                             ),
-                            Text('cost!',
+                            Text(
+                                controller.favModel.data?[i].service
+                                        ?.priceAfterDiscount ??
+                                    '',
                                 style: AppTextStyle.text10W400Blue(context)),
                             SizedBox(
                               width: 1.w,

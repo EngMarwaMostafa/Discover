@@ -35,7 +35,7 @@ class _OnBoardViewState extends State<OnBoardView> {
             controller: _pageController,
             onPageChanged: (index) {
               setState(() {
-                onLastPage = (index ==2);
+                onLastPage = (index == 2);
               });
             },
             children: [
@@ -48,32 +48,33 @@ class _OnBoardViewState extends State<OnBoardView> {
             height: 3.h,
           ),
           Positioned(
-            bottom: 20.h,
-            left: 5.w,
-            child:
-            onLastPage?
-            CustomSplashButton(
-                text: AppStrings.doneText,
-                onTap: () {
-                Get.toNamed(AppRoutes.sign);
-                }).animate().effect(curve: Curves.easeOut, duration: 300.ms)
-                :
-            CustomSplashButton(
-                text: AppStrings.nextText,
-                onTap: () {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeIn,
-                  );
-                }).animate().effect(curve: Curves.easeOut, duration: 300.ms)
-          ),
+              bottom: 20.h,
+              left: 5.w,
+              child: onLastPage
+                  ? CustomSplashButton(
+                          text: AppStrings.doneText,
+                          onTap: () {
+                            Get.toNamed(AppRoutes.continueAs);
+                          })
+                      .animate()
+                      .effect(curve: Curves.easeOut, duration: 300.ms)
+                  : CustomSplashButton(
+                          text: AppStrings.nextText,
+                          onTap: () {
+                            _pageController.nextPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn,
+                            );
+                          })
+                      .animate()
+                      .effect(curve: Curves.easeOut, duration: 300.ms)),
           Positioned(
             bottom: 12.h,
             left: 5.w,
             child: CustomSkipButton(
                 text: AppStrings.skipText,
                 onTap: () {
-                  Get.toNamed(AppRoutes.sign);
+                  Get.toNamed(AppRoutes.continueAs);
                 }).animate().effect(curve: Curves.easeOut, duration: 300.ms),
           ),
           Positioned(

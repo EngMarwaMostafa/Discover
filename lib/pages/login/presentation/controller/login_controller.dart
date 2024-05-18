@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:discover/core/user_service.dart';
 import 'package:discover/models/login_model.dart';
 import 'package:discover/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../routes/app_routes.dart';
 import '../../../register/presentation/controller/register_controller.dart';
@@ -14,7 +16,7 @@ class LoginController extends SuperController<dynamic> {
   final dio = Dio();
   final bool _isLoading = false;
   bool get isLoading => _isLoading;
-
+  GetStorage box = GetStorage('userData');
   login() async {
     change(false, status: RxStatus.loading());
     final prefs = await SharedPreferences.getInstance();
@@ -24,10 +26,8 @@ class LoginController extends SuperController<dynamic> {
     });
     try {
       final response =
-
           await ApiService.postData(url: 'api/authUser/login', body: {
-
-        "type": "2",
+        "type": UserService.to.userType,
         "phone": phoneLoginController.text,
         'password': passwordLoginController.text,
       });
@@ -35,6 +35,9 @@ class LoginController extends SuperController<dynamic> {
       if (response.statusCode == 200) {
         print(response.data);
         LoginModel loginModel = LoginModel.fromJson(response.data);
+        box.write('token', loginModel.accessToken);
+        print(loginModel.accessToken);
+        UserService.to.accessToken = loginModel.accessToken;
         prefs.setString('token', loginModel.accessToken.toString());
         prefs.setString('name', loginModel.admin!.name!);
         prefs.setString('email', loginModel.admin!.email!);
@@ -42,7 +45,6 @@ class LoginController extends SuperController<dynamic> {
         change(false, status: RxStatus.success());
 
         Get.offAllNamed(AppRoutes.city);
-
       } else {}
     } catch (e) {
       if (e is DioException) {

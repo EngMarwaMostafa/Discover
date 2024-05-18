@@ -10,10 +10,16 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
+import 'core/user_service.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init('userData');
   Get.put(ApiService());
+  Get.put(UserService());
   runApp(const MyApp());
 }
 

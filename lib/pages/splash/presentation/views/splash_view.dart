@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    Get.put(UserService());
+
     super.initState();
   }
 

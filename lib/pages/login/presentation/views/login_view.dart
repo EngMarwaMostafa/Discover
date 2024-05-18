@@ -98,9 +98,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 SizedBox(height: 8.h),
                 controller.obx(
-
-                    (state) => CustomSplashButton(
-
+                  (state) => CustomSplashButton(
                       text: AppStrings.enterText,
                       onTap: () {
                         if (formKey.currentState!.validate()) {

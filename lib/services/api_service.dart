@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:discover/core/user_service.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,11 +23,9 @@ class ApiService extends GetxService {
     dio.options.headers = {
       "Accept": 'application/json',
       'Content-Type': 'application/json',
-      "Authorization":
-          "Bearer ${await SharedPreferences.getInstance().then((value) => value.getString('token'))}"
+      "Authorization": "Bearer ${UserService.to.accessToken}"
     };
-    print(await SharedPreferences.getInstance()
-        .then((value) => value.getString('token')));
+    print(UserService.to.accessToken);
     return await dio.get((url), queryParameters: query, data: body);
   }
 
@@ -36,8 +35,7 @@ class ApiService extends GetxService {
     dio.options.headers = {
       'Accept': 'application/json',
       'Content-Type': "application/json",
-      "Authorization":
-          "Bearer ${await SharedPreferences.getInstance().then((value) => value.getString('token'))}"
+      "Authorization": "Bearer ${UserService.to.accessToken}"
     };
 
     Response response = await dio.post(url, queryParameters: query, data: body);

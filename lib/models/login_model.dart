@@ -7,7 +7,7 @@ class LoginModel {
   LoginModel({this.accessToken, this.tokenType, this.expiresIn, this.admin});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
-    accessToken = json['access_token'];
+    accessToken = json['token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];
     admin = json['data'] != null ? Admin.fromJson(json['data']) : null;
