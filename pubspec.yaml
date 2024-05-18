@@ -59,6 +59,7 @@ dependencies:
   fluttertoast:
   shared_preferences:
   flutter_keyboard_visibility:
+  animate_do:
 
 dev_dependencies:
   flutter_test:

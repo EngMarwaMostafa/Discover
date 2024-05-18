@@ -42,14 +42,14 @@ class _PageTwoState extends State<PageTwo> {
               SizedBox(height: 3.h,),
               Center(
                 child: Text(
-                  AppStrings.titleText,
+                  AppStrings.title2Text,
                   style:GoogleFonts.cairo(textStyle:AppTextStyle.text20(context),),
                 ),
               ),
               SizedBox(height: 3.h,),
               Center(
                 child: Text(
-                  AppStrings.bodyText,style: GoogleFonts.cairo(textStyle:AppTextStyle.
+                  AppStrings.body2Text,style: GoogleFonts.cairo(textStyle:AppTextStyle.
                 text18(context).copyWith(fontWeight: FontWeight.w400),),
                 ),
               ),

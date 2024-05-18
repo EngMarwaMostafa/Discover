@@ -1,6 +1,10 @@
 
+import 'package:discover/pages/conitnue/presentation/views/continue_view.dart';
 import 'package:discover/pages/home/presentation/views/home_view.dart';
 import 'package:discover/pages/main_screen/presentation/view/main_screen_view.dart';
+import 'package:discover/pages/on_board/presentation/views/onboard_view.dart';
+import 'package:discover/pages/sign/presentation/views/sign_view.dart';
+import 'package:discover/pages/splash/presentation/views/splash_view.dart';
 import 'package:discover/routes/app_pages.dart';
 import 'package:discover/services/api_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -30,9 +34,9 @@ class MyApp extends StatelessWidget {
           Locale('ar', ''),
         ],
         debugShowCheckedModeBanner: false,
-   // home:HomeView(),
-        initialRoute: AppPages.initial,
-        getPages: AppPages.routes,
+    home:ContinueAsView(),
+        // initialRoute: AppPages.initial,
+        // getPages: AppPages.routes,
       );
     });
   }

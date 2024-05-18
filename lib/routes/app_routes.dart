@@ -25,6 +25,7 @@ abstract class AppRoutes {
   static const bookings3= '/bookings3';
   static const completed= '/completed';
   static const tripsDetails= '/tripsDetails';
+  static const continueAs= '/continueAs';
 
 
 
