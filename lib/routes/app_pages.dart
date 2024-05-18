@@ -122,7 +122,7 @@ class AppPages {
         transition: Transition.fadeIn),
     GetPage(
         name: AppRoutes.home,
-        page: () =>  HomeView(),
+        page: () => HomeView(),
         binding: HomeBinding(),
         transition: Transition.fadeIn),
     GetPage(

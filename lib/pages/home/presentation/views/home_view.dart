@@ -26,7 +26,6 @@ class HomeView extends GetView<HomeController> {
     'محلات',
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,34 +100,33 @@ class HomeView extends GetView<HomeController> {
               CarouselSlider(
                 options: CarouselOptions(height: 19.h),
                 items: List.generate(
-                    controller.banners.data?.length ?? 0,
-                    (index) => Image(
-                        image: NetworkImage(
-                            controller.banners.data?[index].image ?? ''),
-                    errorBuilder: (ctx, object, trace) => const Icon(
-                      Icons.error_outline,
-                      color: Colors.red,
-                    ),
-                    loadingBuilder: (BuildContext context, Widget child,
-                        ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
+                  controller.banners.data?.length ?? 0,
+                  (index) => Image(
+                      image: NetworkImage(
+                          controller.banners.data?[index].image ?? ''),
+                      errorBuilder: (ctx, object, trace) => const Icon(
+                            Icons.error_outline,
+                            color: Colors.red,
+                          ),
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent? loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
                 ),
-              ),),
+              ),
               Padding(
                 padding: EdgeInsets.only(
                     left: 4.w, top: 3.h, bottom: 3.h, right: 3.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                Text(
+                    Text(
                       AppStrings.offers,
                       style: AppTextStyle.text16W600Black(context),
                     ),
-
                     InkWell(
                       onTap: () {
                         Get.toNamed(AppRoutes.offers);
@@ -291,14 +289,18 @@ class HomeView extends GetView<HomeController> {
                 shrinkWrap: true,
                 itemCount: 7,
                 itemBuilder: (context, i) {
-                  return const FamousCard();
+                  return const FamousCard(
+                    hotel: '',
+                    city: '',
+                    desc: '',
+                    price: '',
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(
                     height: 2.h,
                   );
                 },
-
               )
             ],
           ),
