@@ -1,4 +1,5 @@
 
+import 'package:discover/pages/trips/binding/trips_binding.dart';
 import 'package:get/get.dart';
 
 import '../../home/binding/home_binding.dart';
@@ -9,5 +10,6 @@ class MainScreenBinding extends Bindings {
   void dependencies() {
     Get.put(MainScreenController());
     HomeBinding().dependencies();
+    TripsBinding().dependencies();
   }
 }

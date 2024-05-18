@@ -1,3 +1,4 @@
+import 'package:discover/pages/trips/presentation/controller/trips_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -7,7 +8,7 @@ import '../../../../core/app_text_style.dart';
 
 import '../../../../widgets/details_container.dart';
 
-class TripsView extends StatelessWidget {
+class TripsView extends GetView<TripsController> {
   const TripsView({super.key});
 
   @override
@@ -33,35 +34,44 @@ class TripsView extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
-          child: Padding(
-            padding: EdgeInsets.only(left: 3.w, right: 3.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppStrings.availableOffers,
-                  style: AppTextStyle.text16W600Black(context),
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                SizedBox(
-                  height: 80.h,
-                  child: ListView.separated(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: 5,
-                    itemBuilder: (context, i) {
-                      return const DetailsContainer();
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return SizedBox(
-                        height: 2.h,
-                      );
-                    },
+          child: controller.obx(
+            (state) => Padding(
+              padding: EdgeInsets.only(left: 3.w, right: 3.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppStrings.availableOffers,
+                    style: AppTextStyle.text16W600Black(context),
                   ),
-                )
-              ],
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  SizedBox(
+                    height: 80.h,
+                    child: ListView.separated(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: controller.trips.data?.length ?? 0,
+                      itemBuilder: (context, i) {
+                        return DetailsContainer(
+                          title: controller.trips.data?[i].title ?? '',
+                          image: controller.trips.data?[i].image ?? '',
+                          price: controller.trips.data?[i].price ?? '',
+                          location:
+                              controller.trips.data?[i].country?.title ?? '',
+                          date: controller.trips.data?[i].title ?? '',
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          height: 2.h,
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
