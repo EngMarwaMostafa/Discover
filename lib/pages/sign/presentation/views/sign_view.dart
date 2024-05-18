@@ -30,10 +30,7 @@ class SignView extends StatelessWidget {
                  child: Image.asset(ImageAssetsConstants.discoverImage)),
            Lottie.asset('assets/lottie/Animation - 1714898427521.json'),
             // SizedBox(height: 14.h,),
-             Text(AppStrings.journeyText,style: GoogleFonts.cairo(
-                 textStyle:AppTextStyle.text30(context).copyWith(fontWeight: FontWeight.w700)),),
-             Text(AppStrings.enjoyText,style: GoogleFonts.cairo(
-                 textStyle:AppTextStyle.text30(context).copyWith(fontWeight: FontWeight.w700)),),
+             Text(AppStrings.journeyText,style:AppTextStyle.text10W400White(context),),
             SizedBox(height: 5.h,),
              CustomSplashButton(
                  text: AppStrings.enterText,
