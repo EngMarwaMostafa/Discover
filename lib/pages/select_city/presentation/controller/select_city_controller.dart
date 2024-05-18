@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:discover/models/get_countries_model.dart';
+import 'package:discover/routes/app_routes.dart';
 import 'package:discover/services/api_service.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,7 @@ class SelectCityController extends SuperController<dynamic> {
         cities = GetCountriesModel.fromJson(response.data);
         print(response.statusCode);
         change(true, status: RxStatus.success());
+        Get.toNamed(AppRoutes.main);
       }
     } catch (e) {
       if (e is DioException) {

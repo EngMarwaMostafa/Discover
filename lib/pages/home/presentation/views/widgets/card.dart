@@ -52,7 +52,6 @@ class MyCard extends StatelessWidget {
               title: title,
             ),
           ),
-          const PlaceRow(),
           SizedBox(
             height: 1.h,
           ),

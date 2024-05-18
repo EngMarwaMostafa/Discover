@@ -24,7 +24,9 @@ class LoginController extends SuperController<dynamic> {
     });
     try {
       final response =
+
           await ApiService.postData(url: 'api/authUser/login', body: {
+
         "type": "2",
         "phone": phoneLoginController.text,
         'password': passwordLoginController.text,
@@ -38,7 +40,9 @@ class LoginController extends SuperController<dynamic> {
         prefs.setString('email', loginModel.admin!.email!);
         prefs.setString('phone', loginModel.admin!.phone!);
         change(false, status: RxStatus.success());
+
         Get.offAllNamed(AppRoutes.city);
+
       } else {}
     } catch (e) {
       if (e is DioException) {

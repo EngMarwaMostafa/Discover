@@ -14,8 +14,12 @@ import '../../../bookings1/presentation/views/widgets/custom_booking1_button.dar
 
 
 class Bookings3View extends StatelessWidget {
-  const Bookings3View({super.key});
-
+  const Bookings3View({super.key, this.address, this.city, this.period, this.date, this.cost});
+  final String? address;
+  final String? city;
+  final String? period;
+  final String? date;
+  final String? cost;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +65,13 @@ class Bookings3View extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            AppStrings.hurgada,
+                          city!,
                             style: AppTextStyle.text12W600Black(context),
                           ),
                           SizedBox(
                             width: 6.w,
                           ),
-                          Text(AppStrings.thousand,
+                          Text(cost!,
                               style: AppTextStyle.text10W400Blue(context)),
                           SizedBox(
                             width: 1.w,
@@ -104,10 +108,10 @@ class Bookings3View extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(AppStrings.date,
+                              Text(date!,
                                   style: AppTextStyle.text10W500Black(context)),
                               Text(
-                                AppStrings.period,
+                               period!,
                                 style: AppTextStyle.text8W400Black(context),
                               ),
                             ],
@@ -118,7 +122,7 @@ class Bookings3View extends StatelessWidget {
                       Row(
                           children:[
                             Image.asset(ImageAssetsConstants.location,scale: 2.5,),
-                            Text(AppStrings.address,style: AppTextStyle.text12W500BlackCo(context),),
+                            Text(address!,style: AppTextStyle.text12W500BlackCo(context),),
                           ]
                       ),
                       SizedBox(height: 2.h,),

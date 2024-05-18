@@ -15,8 +15,12 @@ import '../../../bookings1/presentation/views/widgets/custom_booking1_button.dar
 
 
 class CompletedBookingsView extends StatelessWidget {
-  const CompletedBookingsView({super.key});
-
+  const CompletedBookingsView({super.key, this.date, this.city, this.period, this.hotel, this.cost});
+  final String? date;
+  final String? city;
+  final String? period;
+  final String? hotel;
+  final String? cost;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +68,13 @@ class CompletedBookingsView extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            AppStrings.marshal,
+                          hotel!,
                             style: AppTextStyle.text12W600Black(context),
                           ),
                           SizedBox(
                             width: 6.w,
                           ),
-                          Text(AppStrings.thousand,
+                          Text(cost!,
                               style: AppTextStyle.text10W400Blue(context)),
                           SizedBox(
                             width: 1.w,
@@ -107,10 +111,10 @@ class CompletedBookingsView extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(AppStrings.date,
+                              Text(date!,
                                   style: AppTextStyle.text10W500Black(context)),
                               Text(
-                                AppStrings.period,
+                                period!,
                                 style: AppTextStyle.text8W400Black(context),
                               ),
                             ],
@@ -121,7 +125,7 @@ class CompletedBookingsView extends StatelessWidget {
                       Row(
                           children:[
                             Image.asset(ImageAssetsConstants.location,scale: 2.5,),
-                            Text(AppStrings.address,style: AppTextStyle.text12W500BlackCo(context),),
+                            Text(city!,style: AppTextStyle.text12W500BlackCo(context),),
                           ]
                       ),
                       SizedBox(height: 2.h,),

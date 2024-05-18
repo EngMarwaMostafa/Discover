@@ -1,4 +1,6 @@
 
+import 'package:discover/pages/home/presentation/views/home_view.dart';
+import 'package:discover/pages/main_screen/presentation/view/main_screen_view.dart';
 import 'package:discover/routes/app_pages.dart';
 import 'package:discover/services/api_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
           Locale('ar', ''),
         ],
         debugShowCheckedModeBanner: false,
-   //  home:TripsDetailsView(),
+   // home:HomeView(),
         initialRoute: AppPages.initial,
         getPages: AppPages.routes,
       );

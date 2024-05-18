@@ -11,10 +11,10 @@ class MainScreenController extends SuperController<dynamic> {
   RxInt currentIndex = 0.obs;
 
   final List<Widget> tabs = [
-    const HomeView(),
+     HomeView(),
     const TripsView(),
    const FavoriteView(),
-    const Bookings1View(),
+    Bookings1View(),
     const AccountView(),
 
   ];

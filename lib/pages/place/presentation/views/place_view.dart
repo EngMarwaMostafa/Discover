@@ -12,8 +12,10 @@ import '../../../../core/app_strings.dart';
 import '../../../../core/app_text_style.dart';
 
 class PlaceView extends StatelessWidget {
-  const PlaceView({super.key});
-
+  const PlaceView({super.key, this.money, this.hotel, this.desc});
+ final String? money;
+ final String? hotel;
+ final String? desc;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,14 +50,14 @@ class PlaceView extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  AppStrings.marshal,
+                 hotel!,
                   style: AppTextStyle.text14W500Black(context),
                 ),
                 SizedBox(
                   width: 45.w,
                 ),
                 Text(
-                  AppStrings.money,
+                 money!,
                   style: AppTextStyle.text12W500Blue(context),
                 ),
                 Text(
@@ -90,7 +92,7 @@ class PlaceView extends StatelessWidget {
               height: 2.h,
             ),
             Text(
-              AppStrings.placeText,
+             desc!,
               style: AppTextStyle.text10W400Gray(context),
             ),
             SizedBox(
