@@ -1,9 +1,15 @@
 import 'package:discover/core/app_strings.dart';
+
 import 'package:discover/core/user_service.dart';
+
+import 'package:discover/core/app_text_style.dart';
+import 'package:discover/pages/conitnue/presentation/views/widgets/custom_card.dart';
+
 import 'package:discover/pages/splash/presentation/views/widgets/custom_splash_button.dart';
 import 'package:discover/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class ContinueAsView extends StatelessWidget {
   const ContinueAsView({super.key});
@@ -11,36 +17,47 @@ class ContinueAsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(left: 12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            CustomSplashButton(
-              text: AppStrings.continueAsUser,
-              onTap: () {
-                UserService.to.userType = '0';
-                Get.toNamed(AppRoutes.sign);
-              },
+
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          CustomCard(
+            iconButton: IconButton(
+              onPressed: () {
+    UserService.to.userType = '0';
+    Get.toNamed(AppRoutes.sign);
+    },
+              icon: Image.asset('assets/icons/userCa.png'),
             ),
-            CustomSplashButton(
-              text: AppStrings.continueAsMediator,
-              onTap: () {
-                UserService.to.userType = '1';
-                Get.toNamed(AppRoutes.sign);
-              },
+            title: AppStrings.continueAsOwner,
+          ),
+          CustomCard(
+            iconButton: IconButton(
+              onPressed: () {
+    UserService.to.userType = '1';
+    Get.toNamed(AppRoutes.sign);
+    },
+              icon: Image.asset('assets/icons/mediator.png'),
             ),
-            CustomSplashButton(
-              text: AppStrings.continueAsOwner,
-              onTap: () {
-                UserService.to.userType = '2';
-                Get.toNamed(AppRoutes.sign);
-              },
+            title: AppStrings.continueAsMediator,
+          ),
+          CustomCard(
+            iconButton: IconButton(
+              onPressed: () {
+    UserService.to.userType = '2';
+    Get.toNamed(AppRoutes.sign);
+    },
+              icon: Image.asset('assets/icons/mediator.png'),
+
             ),
-          ],
-        ),
+            title: AppStrings.continueAsMediator,
+          ),
+
+        ],
       ),
     );
   }
 }
+
+

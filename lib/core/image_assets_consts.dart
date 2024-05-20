@@ -3,7 +3,7 @@ class ImageAssetsConstants {
   static const String board1Image = 'assets/images/board1.png';
   static const String board2Image = 'assets/images/board2.png';
   static const String carImage = 'assets/images/car.png';
-  static const String logoImage = 'assets/images/logo.jpg';
+  static const String logoImage = 'assets/images/logo.png';
   static const String hotelImage = 'assets/images/hotel.png';
   static const String planeImage = 'assets/images/plane.png';
   static const String discoverImage = 'assets/images/discover.png';

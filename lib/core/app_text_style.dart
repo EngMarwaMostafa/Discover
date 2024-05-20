@@ -39,6 +39,8 @@ class AppTextStyle {
       fontSize: 10.sp, color: AppColors.blackColor, fontWeight: FontWeight.w500);
   static TextStyle text10W500White(BuildContext context) => GoogleFonts.cairo(
       fontSize: 10.sp, color: AppColors.white, fontWeight: FontWeight.w500);
+  static TextStyle text18W500White(BuildContext context) => GoogleFonts.cairo(
+      fontSize: 18.sp, color: AppColors.white, fontWeight: FontWeight.w500);
   static TextStyle text10W500Blue(BuildContext context) => GoogleFonts.cairo(
       fontSize: 10.sp, color: AppColors.primaryColor, fontWeight: FontWeight.w500);
   static TextStyle text16W500White(BuildContext context) => GoogleFonts.cairo(
