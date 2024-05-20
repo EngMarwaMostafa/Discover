@@ -30,27 +30,12 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     height = size.height;
     width = size.width;
     return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: height * 0.2, left: width * 0.03),
-            child: Center(
+      backgroundColor: Colors.tealAccent,
+    body:
+       Center(
               child:FadeInDownBig(
-                  // from: 100,
-                  // duration: const Duration(seconds: 5),
-                  // infinite: true,
                   child: Image.asset(ImageAssetsConstants.logoImage)),
             ),
-          ),
-          SizedBox(height: 0.25 * height
-              ),
-          // SpinKitCircle(
-          //   color: AppColors.primaryColor,
-          //   size: 70.0,
-          // ),
-        ],
-      ),
-    );
+          );
   }
 }
