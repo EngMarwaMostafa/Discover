@@ -30,7 +30,7 @@ class ContinueAsView extends StatelessWidget {
     },
               icon: Image.asset('assets/icons/userCa.png'),
             ),
-            title: AppStrings.continueAsOwner,
+            title: AppStrings.continueAsUser,
           ),
           CustomCard(
             iconButton: IconButton(
@@ -38,7 +38,7 @@ class ContinueAsView extends StatelessWidget {
     UserService.to.userType = '1';
     Get.toNamed(AppRoutes.sign);
     },
-              icon: Image.asset('assets/icons/mediator.png'),
+              icon: Image.asset('assets/icons/icons8-mediator-64.png'),
             ),
             title: AppStrings.continueAsMediator,
           ),
@@ -48,10 +48,10 @@ class ContinueAsView extends StatelessWidget {
     UserService.to.userType = '2';
     Get.toNamed(AppRoutes.sign);
     },
-              icon: Image.asset('assets/icons/mediator.png'),
+              icon: Image.asset('assets/icons/icons8-owner-64.png'),
 
             ),
-            title: AppStrings.continueAsMediator,
+            title: AppStrings.continueAsOwner,
           ),
 
         ],
