@@ -17,7 +17,6 @@ class ContinueAsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -25,9 +24,9 @@ class ContinueAsView extends StatelessWidget {
           CustomCard(
             iconButton: IconButton(
               onPressed: () {
-    UserService.to.userType = '0';
-    Get.toNamed(AppRoutes.sign);
-    },
+                UserService.to.userType = '0';
+                Get.toNamed(AppRoutes.sign);
+              },
               icon: Image.asset('assets/icons/userCa.png'),
             ),
             title: AppStrings.continueAsOwner,
@@ -35,9 +34,9 @@ class ContinueAsView extends StatelessWidget {
           CustomCard(
             iconButton: IconButton(
               onPressed: () {
-    UserService.to.userType = '1';
-    Get.toNamed(AppRoutes.sign);
-    },
+                UserService.to.userType = '1';
+                Get.toNamed(AppRoutes.sign);
+              },
               icon: Image.asset('assets/icons/mediator.png'),
             ),
             title: AppStrings.continueAsMediator,
@@ -45,19 +44,15 @@ class ContinueAsView extends StatelessWidget {
           CustomCard(
             iconButton: IconButton(
               onPressed: () {
-    UserService.to.userType = '2';
-    Get.toNamed(AppRoutes.sign);
-    },
+                UserService.to.userType = '2';
+                Get.toNamed(AppRoutes.sign);
+              },
               icon: Image.asset('assets/icons/mediator.png'),
-
             ),
             title: AppStrings.continueAsMediator,
           ),
-
         ],
       ),
     );
   }
 }
-
-

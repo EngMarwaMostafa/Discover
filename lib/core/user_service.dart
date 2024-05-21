@@ -14,9 +14,12 @@ class UserService extends GetxService {
     await Future.delayed(const Duration(seconds: 5));
     if (!box.hasData('token')) {
       Get.toNamed(AppRoutes.onBoard);
-    } else {
+    } else if (box.hasData('token') && box.hasData('type')) {
       accessToken = box.read('token');
+      userType = box.read('type');
       Get.toNamed(AppRoutes.city);
+    } else {
+      Get.toNamed(AppRoutes.onBoard);
     }
     super.onInit();
   }

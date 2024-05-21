@@ -36,6 +36,7 @@ class LoginController extends SuperController<dynamic> {
         print(response.data);
         LoginModel loginModel = LoginModel.fromJson(response.data);
         box.write('token', loginModel.accessToken);
+        box.write('type', UserService.to.userType);
         print(loginModel.accessToken);
         UserService.to.accessToken = loginModel.accessToken;
         prefs.setString('token', loginModel.accessToken.toString());
