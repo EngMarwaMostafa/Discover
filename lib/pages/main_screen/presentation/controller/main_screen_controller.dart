@@ -1,4 +1,3 @@
-
 import 'package:discover/pages/account/presentation/views/account_view.dart';
 import 'package:discover/pages/favorite/presentation/views/favorite_view.dart';
 import 'package:discover/pages/trips/presentation/views/trips_view.dart';
@@ -11,12 +10,11 @@ class MainScreenController extends SuperController<dynamic> {
   RxInt currentIndex = 0.obs;
 
   final List<Widget> tabs = [
-     HomeView(),
+    HomeView(),
     const TripsView(),
-   const FavoriteView(),
+    const FavoriteView(),
     Bookings1View(),
     const AccountView(),
-
   ];
 
   @override

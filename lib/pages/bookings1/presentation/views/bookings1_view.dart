@@ -12,12 +12,12 @@ import '../../../../routes/app_routes.dart';
 class Bookings1View extends StatelessWidget {
   const Bookings1View(
       {super.key,
-       this.cost,
+      this.cost,
       this.hotel,
       this.address,
       this.date,
-       this.period,
-     this.city});
+      this.period,
+      this.city});
 
   final String? cost;
   final String? hotel;
@@ -84,13 +84,13 @@ class Bookings1View extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            city!,
+                            'city'!,
                             style: AppTextStyle.text12W600Black(context),
                           ),
                           SizedBox(
                             width: 6.w,
                           ),
-                          Text(cost!,
+                          Text('cost'!,
                               style: AppTextStyle.text10W400Blue(context)),
                           SizedBox(
                             width: 1.w,
@@ -148,7 +148,7 @@ class Bookings1View extends StatelessWidget {
                           scale: 2.5,
                         ),
                         Text(
-                          address!,
+                          'address'!,
                           style: AppTextStyle.text12W500BlackCo(context),
                         ),
                       ]),
@@ -184,13 +184,13 @@ class Bookings1View extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            hotel!,
+                            'hotel'!,
                             style: AppTextStyle.text12W600Black(context),
                           ),
                           SizedBox(
                             width: 6.w,
                           ),
-                          Text(cost!,
+                          Text('cost'!,
                               style: AppTextStyle.text10W400Blue(context)),
                           SizedBox(
                             width: 1.w,
@@ -229,10 +229,10 @@ class Bookings1View extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(date!,
+                              Text('date'!,
                                   style: AppTextStyle.text10W500Black(context)),
                               Text(
-                                period!,
+                                'period'!,
                                 style: AppTextStyle.text8W400Black(context),
                               ),
                             ],
@@ -248,7 +248,7 @@ class Bookings1View extends StatelessWidget {
                           scale: 2.5,
                         ),
                         Text(
-                          address!,
+                          'address'!,
                           style: AppTextStyle.text12W500BlackCo(context),
                         ),
                       ]),

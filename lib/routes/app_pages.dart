@@ -144,7 +144,7 @@ class AppPages {
         transition: Transition.fadeIn),
     GetPage(
         name: AppRoutes.book1,
-        page: () => const Book1View(),
+        page: () => Book1View(),
         binding: Book1Binding(),
         transition: Transition.fadeIn),
     GetPage(
