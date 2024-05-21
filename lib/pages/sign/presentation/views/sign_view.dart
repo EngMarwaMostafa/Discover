@@ -35,7 +35,7 @@ class SignView extends StatelessWidget {
              CustomSplashButton(
                  text: AppStrings.enterText,
                  onTap:(){
-                   Get.toNamed(AppRoutes.login);
+                   Get.toNamed(AppRoutes.main);
                  }),
              SizedBox(height:5.h,),
              CustomNewButton(

@@ -7,7 +7,9 @@ import 'package:discover/pages/conitnue/presentation/views/widgets/custom_card.d
 
 import 'package:discover/pages/splash/presentation/views/widgets/custom_splash_button.dart';
 import 'package:discover/routes/app_routes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -22,35 +24,37 @@ class ContinueAsView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CustomCard(
-            iconButton: IconButton(
-              onPressed: () {
-                UserService.to.userType = '0';
-                Get.toNamed(AppRoutes.sign);
-              },
-              icon: Image.asset('assets/icons/userCa.png'),
+
+            onTap: () {
+              UserService.to.userType = '0';
+              Get.toNamed(AppRoutes.sign);
+            },
+            icon: const ImageIcon(
+              AssetImage('assets/icons/userCa.png'),
+            ),
+            title: AppStrings.continueAsUser,
+          ),
+          CustomCard(
+            onTap: () {
+              UserService.to.userType = '1';
+              Get.toNamed(AppRoutes.sign);
+            },
+            icon: const ImageIcon(
+              AssetImage('assets/icons/icons8-mediator-64.png'),
+            ),
+            title: AppStrings.continueAsMediator,
+          ),
+          CustomCard(
+            onTap: () {
+              UserService.to.userType = '2';
+              Get.toNamed(AppRoutes.sign);
+            },
+            icon: const ImageIcon(
+              AssetImage('aassets/icons/icons8-owner-64.png'),
             ),
             title: AppStrings.continueAsOwner,
           ),
-          CustomCard(
-            iconButton: IconButton(
-              onPressed: () {
-                UserService.to.userType = '1';
-                Get.toNamed(AppRoutes.sign);
-              },
-              icon: Image.asset('assets/icons/mediator.png'),
-            ),
-            title: AppStrings.continueAsMediator,
-          ),
-          CustomCard(
-            iconButton: IconButton(
-              onPressed: () {
-                UserService.to.userType = '2';
-                Get.toNamed(AppRoutes.sign);
-              },
-              icon: Image.asset('assets/icons/mediator.png'),
-            ),
-            title: AppStrings.continueAsMediator,
-          ),
+
         ],
       ),
     );

@@ -27,6 +27,7 @@ class LoginController extends SuperController<dynamic> {
     try {
       final response =
           await ApiService.postData(url: 'api/authUser/login', body: {
+
         "type": UserService.to.userType,
         "phone": phoneLoginController.text,
         'password': passwordLoginController.text,

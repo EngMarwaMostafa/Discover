@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:discover/core/user_service.dart';
 import 'package:get/get.dart' hide Response;
