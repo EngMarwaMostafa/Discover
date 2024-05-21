@@ -31,31 +31,29 @@ class Book1View extends GetView<Book1Controller> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 4.w),
-        child: controller.obx(
-          (state) => Column(
-            children: [
-              Center(
-                child:
-                    SizedBox(height: 56.h, child: const CustomTableCalendar()),
-              ),
-              SizedBox(
-                height: 7.h,
-              ),
-              CustomSplashButton(
-                  text: AppStrings.bookOnline,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.book2);
-                  }),
-              SizedBox(
-                height: 2.h,
-              ),
-              CustomSkipButton(
-                  text: AppStrings.bookOnDelivery,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.book3);
-                  })
-            ],
-          ),
+        child: Column(
+          children: [
+            Center(
+              child:
+              SizedBox(height: 56.h, child: const CustomTableCalendar()),
+            ),
+            SizedBox(
+              height: 7.h,
+            ),
+            CustomSplashButton(
+                text: AppStrings.bookOnline,
+                onTap: () {
+                  Get.toNamed(AppRoutes.book2);
+                }),
+            SizedBox(
+              height: 2.h,
+            ),
+            CustomSkipButton(
+                text: AppStrings.bookOnDelivery,
+                onTap: () {
+                  Get.toNamed(AppRoutes.book3);
+                })
+          ],
         ),
       ),
     );

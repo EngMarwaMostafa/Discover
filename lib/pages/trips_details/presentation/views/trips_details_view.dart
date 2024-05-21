@@ -10,8 +10,9 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../core/app_strings.dart';
 import '../../../../core/app_text_style.dart';
+import '../controller/trips_details_controller.dart';
 
-class TripsDetailsView extends StatelessWidget {
+class TripsDetailsView extends GetView<TripsDetailsController> {
   const TripsDetailsView({super.key});
 
   @override
@@ -22,7 +23,7 @@ class TripsDetailsView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         automaticallyImplyLeading: false,
-        leading:     IconButton(
+        leading: IconButton(
           onPressed: () {
             Get.back();
           },
@@ -39,146 +40,147 @@ class TripsDetailsView extends StatelessWidget {
             SizedBox(
                 height: 42.h,
                 width: double.infinity,
-                child: Image.asset(ImageAssetsConstants.placeImg,
-                fit: BoxFit.fill,
-                )),
+                child: Image(
+                    image: NetworkImage(controller.trip.service?.image ?? ''))),
             SizedBox(
               height: 2.h,
             ),
-        Padding(
-          padding: EdgeInsets.only(left: 3.w,right: 3.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+            Padding(
+              padding: EdgeInsets.only(left: 3.w, right: 3.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      Text(
+                        controller.trip.service?.titleAr ?? '',
+                        style: AppTextStyle.text14W500Black(context),
+                      ),
+                      SizedBox(
+                        width: 45.w,
+                      ),
+                      Text(
+                        controller.trip.totalPrice ?? '',
+                        style: AppTextStyle.text12W500Blue(context),
+                      ),
+                      Text(
+                        AppStrings.night,
+                        style: AppTextStyle.text12W500Black(context),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Row(
+                    children: [
+                      const PlaceRowBlack(),
+                      SizedBox(
+                        width: 50.w,
+                      ),
+                      Icon(
+                        Icons.favorite_outline_rounded,
+                        color: AppColors.greyColor,
+                      ),
+                      SizedBox(
+                        width: 4.w,
+                      ),
+                      Image.asset(
+                        ImageAssetsConstants.share,
+                        scale: 1.5,
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
                   Text(
-                    AppStrings.hurgada,
+                    AppStrings.aboutTrip,
                     style: AppTextStyle.text14W500Black(context),
                   ),
                   SizedBox(
-                    width: 45.w,
+                    height: 2.h,
                   ),
                   Text(
-                    AppStrings.money,
-                    style: AppTextStyle.text12W500Blue(context),
-                  ),
-                  Text(
-                    AppStrings.night,
-                    style: AppTextStyle.text12W500Black(context),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                children: [
-                  const PlaceRowBlack(),
-                  SizedBox(
-                    width: 50.w,
-                  ),
-                  Icon(
-                    Icons.favorite_outline_rounded,
-                    color: AppColors.greyColor,
+                    controller.trip.service?.descriptionAr ?? '',
+                    style: AppTextStyle.text10W400Gray(context),
                   ),
                   SizedBox(
-                    width: 4.w,
-                  ),
-                  Image.asset(
-                    ImageAssetsConstants.share,
-                    scale: 1.5,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text(
-                AppStrings.aboutTrip,
-                style: AppTextStyle.text14W500Black(context),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text(
-                AppStrings.placeText,
-                style: AppTextStyle.text10W400Gray(context),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text(
-                AppStrings.details,
-                style: AppTextStyle.text14W500Black(context),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                children: [
-                  Text(
-                    AppStrings.date,
-                    style: AppTextStyle.text10W500Gray(context),
+                    height: 2.h,
                   ),
                   Text(
-                    AppStrings.period,
-                    style: AppTextStyle.text10W500Gray(context),
+                    AppStrings.details,
+                    style: AppTextStyle.text14W500Black(context),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        AppStrings.date,
+                        style: AppTextStyle.text10W500Gray(context),
+                      ),
+                      Text(
+                        AppStrings.period,
+                        style: AppTextStyle.text10W500Gray(context),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Row(children: [
+                    Text(
+                      AppStrings.left,
+                      style: AppTextStyle.text10W500Gray(context),
+                    ),
+                    SizedBox(width: 4.w),
+                    Text(
+                      AppStrings.arrive,
+                      style: AppTextStyle.text10W500Gray(context),
+                    ),
+                  ]),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  // Text(
+                  //   AppStrings.tripImage,
+                  //   style: AppTextStyle.text18W500Black(context),
+                  // ),
+                  // SizedBox(
+                  //   height: 2.h,
+                  // ),
+                  // SizedBox(
+                  //   height: 9.h,
+                  //   child: ListView.separated(
+                  //     scrollDirection: Axis.horizontal,
+                  //     shrinkWrap: true,
+                  //     itemBuilder: (context, i) {
+                  //       return const PlaceContainer();
+                  //     },
+                  //     separatorBuilder: (context, index) {
+                  //       return SizedBox(
+                  //         width: 3.w,
+                  //       );
+                  //     },
+                  //     itemCount: 8,
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  CustomSplashButton(
+                      text: AppStrings.bookNow,
+                      onTap: () {
+                        Get.toNamed(AppRoutes.book1);
+                      }),
+                  SizedBox(
+                    height: 2.h,
                   ),
                 ],
               ),
-              SizedBox(
-                height: 3.h,
-              ),
-             Row(
-               children:[
-                 Text(
-                   AppStrings.left,
-                   style: AppTextStyle.text10W500Gray(context),
-                 ),
-                 SizedBox(width:4.w),
-                 Text(
-                   AppStrings.arrive,
-                   style: AppTextStyle.text10W500Gray(context),
-                 ),
-                 ]
-             ),
-              SizedBox(height: 1.h,),
-              Text(
-                AppStrings.tripImage,
-                style: AppTextStyle.text18W500Black(context),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              SizedBox(
-                height: 9.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemBuilder: (context, i) {
-                    return const PlaceContainer();
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      width: 3.w,
-                    );
-                  },
-                  itemCount: 8,
-                ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              CustomSplashButton(text: AppStrings.bookNow, onTap: () {
-                Get.toNamed(AppRoutes.book1);
-              }),
-              SizedBox(
-                height: 2.h,
-              ),
-            ],
-          ),
-        )
+            )
           ],
         ),
       ),

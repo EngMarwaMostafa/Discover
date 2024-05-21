@@ -1,3 +1,4 @@
+
 import 'package:discover/core/image_assets_consts.dart';
 import 'package:discover/pages/bookings2/presentation/views/widgets/bookings2_card.dart';
 import 'package:discover/pages/bookings2/presentation/views/widgets/custom_book_button.dart';
@@ -11,9 +12,10 @@ import '../../../../core/app_text_style.dart';
 import '../../../../routes/app_routes.dart';
 import '../../../bookings1/presentation/views/widgets/custom_booking1_button.dart';
 
+
+
 class CompletedBookingsView extends StatelessWidget {
-  const CompletedBookingsView(
-      {super.key, this.date, this.city, this.period, this.hotel, this.cost});
+  const CompletedBookingsView({super.key, this.date, this.city, this.period, this.hotel, this.cost});
   final String? date;
   final String? city;
   final String? period;
@@ -24,11 +26,10 @@ class CompletedBookingsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-          onTap: () {
+          onTap: (){
             Get.back();
           },
-          child: const Icon(
-            Icons.arrow_back,
+          child: const Icon(Icons.arrow_back,
           ),
         ),
         toolbarHeight: 12.h,
@@ -56,7 +57,7 @@ class CompletedBookingsView extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 1.h, right: 1.w, bottom: 1.h),
+                  padding:  EdgeInsets.only(top: 1.h,right: 1.w,bottom: 1.h),
                   child: Image.asset(ImageAssetsConstants.bookImg),
                 ),
                 Padding(
@@ -67,7 +68,7 @@ class CompletedBookingsView extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            hotel!,
+                          hotel!,
                             style: AppTextStyle.text12W600Black(context),
                           ),
                           SizedBox(
@@ -96,9 +97,7 @@ class CompletedBookingsView extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
+                      SizedBox(height: 2.h,),
                       Row(
                         children: [
                           Image.asset(
@@ -122,25 +121,17 @@ class CompletedBookingsView extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 2.h,
+                      SizedBox(height: 2.h,),
+                      Row(
+                          children:[
+                            Image.asset(ImageAssetsConstants.location,scale: 2.5,),
+                            Text(city!,style: AppTextStyle.text12W500BlackCo(context),),
+                          ]
                       ),
-                      Row(children: [
-                        Image.asset(
-                          ImageAssetsConstants.location,
-                          scale: 2.5,
-                        ),
-                        Text(
-                          city!,
-                          style: AppTextStyle.text12W500BlackCo(context),
-                        ),
-                      ]),
-                      SizedBox(
-                        height: 2.h,
-                      ),
+                      SizedBox(height: 2.h,),
                       CustomBooking1Button(
                           text: AppStrings.details,
-                          onTap: () {
+                          onTap: (){
                             Get.toNamed(AppRoutes.bookings2);
                           })
                     ],
@@ -154,3 +145,4 @@ class CompletedBookingsView extends StatelessWidget {
     );
   }
 }
+

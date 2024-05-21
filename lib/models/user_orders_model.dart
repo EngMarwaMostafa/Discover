@@ -1,13 +1,13 @@
 class UserOrdersModel {
-  List<Data>? data;
+  List<SingleOrderModel>? data;
 
   UserOrdersModel({this.data});
 
   UserOrdersModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <SingleOrderModel>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(SingleOrderModel.fromJson(v));
       });
     }
   }
@@ -21,7 +21,7 @@ class UserOrdersModel {
   }
 }
 
-class Data {
+class SingleOrderModel {
   int? id;
   String? totalPrice;
   String? orderDate;
@@ -34,7 +34,7 @@ class Data {
   String? createdAt;
   String? updatedAt;
 
-  Data(
+  SingleOrderModel(
       {this.id,
       this.totalPrice,
       this.orderDate,
@@ -47,7 +47,7 @@ class Data {
       this.createdAt,
       this.updatedAt});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  SingleOrderModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     totalPrice = json['total_price'];
     orderDate = json['order_date'];
